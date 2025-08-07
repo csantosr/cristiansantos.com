@@ -1,0 +1,52 @@
+name: Deploy Site to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Astro project
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          ls -la dist/
+          echo "Build completed successfully"
+
+      - name: Deploy to DigitalOcean
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_SECRET_KEY }}
+          source: "dist/*"
+          target: "/var/www/cristiansantos.com/"
+          strip_components: 1
+
+      - name: Set permissions and reload Nginx
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_SECRET_KEY }}
+          script: |
+            sudo chown -R deploy:www-data /var/www/cristiansantos.com/
+            chmod -R 755 /var/www/cristiansantos.com/
+            
+            # Reload Nginx
+            sudo systemctl reload nginx

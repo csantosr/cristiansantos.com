@@ -25,7 +25,7 @@
 import type { FC } from "react";
 
 function calculateTimeToBirthday() {
-  const pastDate = new Date("1999-08-30T13:00:00"); // August 30, 1999, 1:00 PM
+  const pastDate = new Date("1999-08-30T13:00:00");
 
   const currentDate = new Date();
 
@@ -81,21 +81,21 @@ const FetchCommand: FC<Props> = ({ sendCommand }) => (
       <div className="flex items-center gap-2">
         <span className="text-yellow-400">Uptime:</span>
         <span>{calculateTimeToBirthday()}</span>
-        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("about")}>"about"</button> to know more</span>
+        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("about")}>about</button> to know more</span>
       </div>
-      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("about")}>"about"</button> to know more</span>
+      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("about")}>about</button> to know more</span>
       <div className="flex items-center gap-2">
         <span className="text-yellow-400">Experience:</span>
         <span>+4 Years </span>
-        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("experience")}>"experience"</button> to know more</span>
+        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("experience")}>experience</button> to know more</span>
       </div>
-      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("experience")}>"experience"</button> to know more</span>
+      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("experience")}>experience</button> to know more</span>
       <div className="flex items-center gap-2">
         <span className="text-yellow-400">Technologies:</span>
         <span>JS/TS, React, Django</span>
-        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("skills")}>"skills"</button> to know more</span>
+        <span className="text-gray-500 hidden md:block">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("skills")}>skills</button> to know more</span>
       </div>
-      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("skills")}>"skills"</button> to know more</span>
+      <span className="text-gray-500 md:hidden">Type <button className="text-green-500 italic underline cursor-pointer" onClick={() => sendCommand("skills")}>skills</button> to know more</span>
     </div>
     <hr className="text-purple-500 md:hidden" />
   </div>

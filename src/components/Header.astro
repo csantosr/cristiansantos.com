@@ -6,7 +6,7 @@ const links = [
   },
   {
     label: 'blog',
-    to: '/blog'
+    to: '/blog/'
   },
 ];
 
@@ -18,9 +18,9 @@ const currentPath = Astro.url.pathname;
     {links.map((link, idx) => (
       <a
         href={link.to}
-        class=`my-1 px-1 ${currentPath.startsWith(link.to) ? 'bg-purple-500 font-bold' : 'bg-gray-400'}`
+        class=`my-1 px-1 ${currentPath === link.to ? 'bg-purple-500 font-bold' : 'bg-gray-400'}`
       >
-        {idx}: {link.label}{currentPath.startsWith(link.to) && '*'}
+        {idx}: {link.label}{currentPath === link.to && '*'}
       </a>
     ))}
   </nav>
