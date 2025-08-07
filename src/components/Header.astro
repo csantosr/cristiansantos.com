@@ -1,0 +1,29 @@
+---
+const links = [
+  {
+    label: 'home',
+    to: '/'
+  },
+  {
+    label: 'blog',
+    to: '/blog'
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-gray-800 border-b-2 border-purple-500 flex flex-row justify-between items-center p-1 px-2">
+  <nav class="flex gap-1">
+    {links.map((link, idx) => (
+      <a
+        href={link.to}
+        class=`my-1 px-1 ${currentPath.startsWith(link.to) ? 'bg-purple-500 font-bold' : 'bg-gray-400'}`
+      >
+        {idx}: {link.label}{currentPath.startsWith(link.to) && '*'}
+      </a>
+    ))}
+  </nav>
+  <!-- CHANGE FOR LOGO -->
+  <span class="text-gray-500">cristiansantos.com</span>
+</header>

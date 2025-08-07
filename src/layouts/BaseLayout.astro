@@ -1,0 +1,18 @@
+---
+import '../styles/global.css'
+import '@fontsource/fira-mono'
+import Header from '../components/Header.astro'
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cristian</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="bg-gray-900 text-red-400 flex-1 p-2 overflow-y-auto">
+      <slot />
+    </main>
+  </body>
+</html>
