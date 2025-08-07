@@ -13,7 +13,7 @@ const links = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-gray-800 border-b-2 border-purple-500 flex flex-row justify-between items-center p-1 px-2">
+<header class="bg-gray-800 border-b-2 border-purple-500 flex flex-row justify-between items-center p-1 px-2 h-10 fixed top-0 left-0 right-0">
   <nav class="flex gap-1">
     {links.map((link, idx) => (
       <a
@@ -24,6 +24,11 @@ const currentPath = Astro.url.pathname;
       </a>
     ))}
   </nav>
-  <!-- CHANGE FOR LOGO -->
-  <span class="text-gray-500">cristiansantos.com</span>
+  <img src="/logo.png" alt="cristiansantos.com" class="h-6 w-6">
 </header>
+
+<style>
+  :root {
+    --header-height: 2.5em;
+  }
+</style>

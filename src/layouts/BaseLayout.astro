@@ -3,16 +3,42 @@ import '../styles/global.css'
 import '@fontsource/fira-mono'
 import Header from '../components/Header.astro'
 ---
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cristian</title>
-  </head>
-  <body class="min-h-screen flex flex-col">
-    <Header />
-    <main class="bg-gray-900 text-red-400 flex-1 p-2 overflow-y-auto">
-      <slot />
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="/tailwind-output.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body id="app-body" class="flex flex-col overflow-hidden bg-gray-900">
+  <Header class="flex-shrink-0" />
+  <main class="flex-1 p-2 overflow-x-hidden mt-30 md:mt-10">
+    <slot />
+  </main>
+</body>
+<script is:inline>
+  function setBodyHeight() {
+    const body = document.getElementById('app-body');
+    if (body) {
+      body.style.height = `${window.innerHeight}px`;
+    }
+  }
+  setBodyHeight();
+  window.addEventListener('resize', setBodyHeight);
+  window.addEventListener('orientationchange', () => {
+    setTimeout(setBodyHeight, 100);
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setBodyHeight);
+  }
+</script>
 </html>
