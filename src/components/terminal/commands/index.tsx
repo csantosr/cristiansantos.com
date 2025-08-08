@@ -6,6 +6,7 @@ import SkillsCommand from "./skills";
 import ExperienceCommant from "./experience";
 import ContactCommand from "./contact";
 import FetchCommand from "./fetch";
+import PWDCommand from "./pwd";
 
 export const getCommandOutput = (
   command: string,
@@ -26,6 +27,8 @@ export const getCommandOutput = (
       return <ContactCommand />;
     case "fetch":
       return <FetchCommand sendCommand={sendCommand} />
+    case "pwd":
+      return <PWDCommand />
     default:
       return (
         <div className="flex flex-col gap-4">

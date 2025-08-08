@@ -22,6 +22,10 @@ const commands = [
     description: 'The thing with my face'
   },
   {
+    command: 'pwd',
+    description: 'Where I am'
+  },
+  {
     command: 'help',
     description: 'How to use this thing'
   },
