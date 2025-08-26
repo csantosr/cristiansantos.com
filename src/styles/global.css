@@ -1,5 +1,10 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 body {
   font-family: "Fira Mono";
+}
+
+article {
+  font-family: "Inter Variable", sans-serif;
 }
