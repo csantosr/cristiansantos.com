@@ -2,11 +2,16 @@
 const links = [
   {
     label: 'home',
-    to: '/'
+    to: '/',
   },
   {
     label: 'blog',
-    to: '/blog/'
+    to: '/blog/',
+  },
+  {
+    label: 'cli',
+    to: '/cli/',
+    hideOnMobile: true,
   },
 ];
 
@@ -18,7 +23,7 @@ const currentPath = Astro.url.pathname;
     {links.map((link, idx) => (
       <a
         href={link.to}
-        class=`my-1 px-1 ${currentPath === link.to ? 'bg-purple-500 font-bold' : 'bg-gray-400'}`
+        class=`my-1 px-1 ${currentPath === link.to ? 'bg-purple-500 font-bold' : 'bg-gray-400'} ${link.hideOnMobile ? 'hidden md:block' : ''}`
       >
         {idx}: {link.label}{currentPath === link.to && '*'}
       </a>

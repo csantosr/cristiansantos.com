@@ -1,9 +1,116 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import Terminal from "../components/terminal/index.tsx"
-
+import { about } from "../data/about"
+import { skills } from "../data/skills"
+import { experience } from "../data/experience"
+import { contact } from "../data/contact"
 ---
 
 <BaseLayout>
-  <Terminal client:load/>
+  <div class="max-w-4xl mx-auto flex flex-col gap-16 pb-16">
+
+    <!-- Hero -->
+    <section class="flex flex-col gap-4">
+      <div class="flex justify-between items-center gap-4">
+        <div class="flex flex-col gap-1">
+          <span class="text-purple-400 text-sm">~ $  whoami</span>
+          <h1 class="text-3xl md:text-4xl text-gray-100 font-bold">{about.fullName}</h1>
+          <p class="text-lg text-gray-400">{about.title}</p>
+        </div>
+        <img src="/logo.png" alt="cristiansantos.com" class="size-24" />
+      </div>
+      <div class="border-l-2 border-purple-500 pl-4 flex flex-col gap-1 text-gray-400">
+        <span>Based in <a class="text-gray-300 underline" href={about.locationUrl} target="_blank">{about.locationDetail}</a>, {about.location}</span>
+        <span>My tech stack includes {about.stack.map((s, i) => <><span class="text-teal-400">{s}</span>{i < about.stack.length - 1 ? (i === about.stack.length - 2 ? ', and ' : ', ') : ''}</>)}</span>
+        <span>{about.summary}</span>
+      </div>
+      <div class="flex gap-3 mt-2">
+        <a href={contact.linkedin.url} target="_blank" class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">linkedin</a>
+        <a href={contact.github.url} target="_blank" class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">github</a>
+        <a href={`mailto:${contact.email}`} class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">email</a>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-purple-400 text-sm">~ $</span>
+        <h2 class="text-xl text-gray-100 font-bold">skills</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map(({ group, list }) => (
+          <div class="border border-gray-700 p-4 flex flex-col gap-2 hover:border-purple-500/50 transition-colors">
+            <span class="text-yellow-400 text-sm"># {group}</span>
+            <div class="flex flex-wrap gap-2">
+              {list.map((skill) => (
+                <span class="text-xs text-gray-300 bg-gray-800 border border-gray-600 px-2 py-1">{skill}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-purple-400 text-sm">~ $</span>
+        <h2 class="text-xl text-gray-100 font-bold">experience</h2>
+      </div>
+      <div class="flex flex-col gap-6">
+        {experience.map(({ name, from, to, position, items }) => (
+          <div class="border-l-2 border-gray-700 pl-4 flex flex-col gap-2 hover:border-green-500/70 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+              <span class="text-gray-100 font-bold">{name}</span>
+              <span class="text-yellow-500 text-sm">{from} — {to ?? 'Present'}</span>
+            </div>
+            <span class="text-purple-400 text-sm">{position}</span>
+            <ul class="flex flex-col gap-1">
+              {items.map((item) => (
+                <li class="text-gray-400 text-sm flex gap-2">
+                  <span class="text-green-400 shrink-0">›</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-purple-400 text-sm">~ $</span>
+        <h2 class="text-xl text-gray-100 font-bold">contact</h2>
+      </div>
+      <div class="border border-gray-700 p-4 flex flex-col gap-2 text-sm">
+        <span class="text-gray-500">{"{"}</span>
+        <div class="ml-4 flex flex-col gap-1">
+          <div class="flex gap-2">
+            <span class="text-teal-400">"email"</span>
+            <span class="text-gray-500">:</span>
+            <a href={`mailto:${contact.email}`} class="text-yellow-400 hover:underline">"{contact.email}"</a>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-teal-400">"linkedin"</span>
+            <span class="text-gray-500">:</span>
+            <a href={contact.linkedin.url} target="_blank" class="text-yellow-400 hover:underline">"{contact.linkedin.label}"</a>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-teal-400">"github"</span>
+            <span class="text-gray-500">:</span>
+            <a href={contact.github.url} target="_blank" class="text-yellow-400 hover:underline">"{contact.github.label}"</a>
+          </div>
+        </div>
+        <span class="text-gray-500">{"}"}</span>
+      </div>
+    </section>
+
+    <footer class="hidden md:block text-center text-gray-600 text-xs border-t border-gray-800 pt-4">
+      Try the <a href="/cli/" class="text-purple-400 underline hover:text-purple-300">interactive CLI version</a>
+    </footer>
+
+  </div>
 </BaseLayout>
+
