@@ -12,7 +12,7 @@ export const experience: Experience[] = [
     from: 'Dec 2025',
     position: 'Full Stack Developer',
     items: [
-      'Built data ingestion pipelines for multiple advertising platforms including Google Ads, Facebook, Amazon, Teads, and DV360.',
+      'Built automated data ingestion pipelines across 5 ad platforms (Google Ads, Facebook, Amazon, Teads, DV360), replacing a manual per-client Looker workflow.',
       'Configured, customized, and built dashboards in Apache Superset to visualize ad performance data across platforms.',
     ],
   },
@@ -23,7 +23,7 @@ export const experience: Experience[] = [
     position: 'Full Stack Developer',
     items: [
       'Contributed to the development of Storydough, an AI-powered PRD platform for product managers.',
-      'Implement LLM-driven PRD updates utilizing Anthropic, DynamoDB and Lambda',
+      'Architected LLM-driven PRD generation using Anthropic\'s API, DynamoDB, and Lambda, the core feature of an AI-powered product management platform.',
       'Develop a full-stack application with Next.js and Drizzle ORM',
       'Implement an MCP client using FastMCP',
     ],
@@ -34,7 +34,7 @@ export const experience: Experience[] = [
     to: 'May 2025',
     position: 'Tech Lead & Co-founder',
     items: [
-      'Developing QuikCards, a digital card service and mini-page platform where users can create and manage their links, using Next.js, Supabase, and AWS.',
+      'Designed and built QuikCards end-to-end, a digital card and link-in-bio platform, using Next.js, Supabase, and AWS, from architecture to production.',
       'Working on Quikly Parking, a local parking solution built with Django.',
       'Developing Quikly Autoatención, a POS service for restaurants with self-service touchscreen modules, using Django and React',
       'As Tech Lead, I define the architecture and technological strategy of the project.',
@@ -47,7 +47,7 @@ export const experience: Experience[] = [
     position: 'Tech Lead',
     items: [
       'Led a team of 4 developers, organizing tasks and reviewing code.',
-      'Built a social network platform called Vibe for alternative medicine practitioners, where they could create communities, sell services, and organize events (free or paid via Stripe).',
+      'Architected a full-stack social platform for wellness practitioners, including communities, service listings, and Stripe payments; using React Native, TypeScript, AWS CDK, and DynamoDB.',
       'Implemented a virtual currency system (Good Vibes) based on QLDB, enabling payments, donations, and gifts within the platform.',
       'Developed the frontend using React and React Native and the backend with TypeScript, CDK, and DynamoDB.',
     ],
@@ -58,7 +58,7 @@ export const experience: Experience[] = [
     to: 'Mar 2023',
     position: 'Full Stack Developer',
     items: [
-      'Developed a social network for high school students called Zaahah, focused on extracurricular activities and real-life events.',
+      'Built a gamified social network for high school students with a virtual currency system (QLDB) and an NFT wallet in React Native, deployed to production.',
       'Implemented the frontend using React and React Native and the backend with TypeScript, CDK, and DynamoDB.',
       'Developed a gamification system with a virtual currency (Aha) using QLDB.',
       'Created the Aha Wallet app in React Native to allow users to view their balance, and implemented an NFT system that automatically assigned tokens to users upon registration.',

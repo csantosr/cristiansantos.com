@@ -28,6 +28,7 @@ import { contact } from "../data/contact"
         <a href={contact.linkedin.url} target="_blank" class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">linkedin</a>
         <a href={contact.github.url} target="_blank" class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">github</a>
         <a href={`mailto:${contact.email}`} class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">email</a>
+        <a href="/cv_cristian_santos.pdf" download class="text-sm text-gray-400 border border-gray-600 px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-colors">CV</a>
       </div>
     </section>
 
@@ -101,6 +102,11 @@ import { contact } from "../data/contact"
             <span class="text-teal-400">"github"</span>
             <span class="text-gray-500">:</span>
             <a href={contact.github.url} target="_blank" class="text-yellow-400 underline">"{contact.github.label}"</a>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-teal-400">"cv"</span>
+            <span class="text-gray-500">:</span>
+            <a href="/cv_cristian_santos.pdf"  download="" class="text-yellow-400 underline">"download"</a>
           </div>
         </div>
         <span class="text-gray-500">{"}"}</span>
